@@ -4,6 +4,16 @@
   "description": "VSCode plugin for extracting class names from PUG and generate CSS stylesheet for following work.",
   "version": "0.0.1",
   "icon": "images/icon.png",
+  "homepage": "https://github.com/rfkhusnutdinov/pug-ecsstractor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rfkhusnutdinov/pug-ecsstractor"
+  },
+  "keywords": [
+    "ecsstractor",
+    "pug"
+  ],
+  "publisher": "rfkhusnutdinov",
   "engines": {
     "vscode": "^1.5.0"
   },
