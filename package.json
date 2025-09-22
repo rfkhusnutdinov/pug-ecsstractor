@@ -1,0 +1,146 @@
+{
+  "name": "pug-ecsstractor",
+  "displayName": "PUG eCSStractor for VSCode",
+  "description": "VSCode plugin for extracting class names from PUG and generate CSS stylesheet for following work.",
+  "version": "0.0.1",
+  "icon": "images/icon.png",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.pug_ecsstractor_run",
+    "onCommand:extension.pug_ecsstractor_runwithbem",
+    "onCommand:extension.pug_ecsstractor_runwithbemandcomments",
+    "onCommand:extension.pug_ecsstractor_runwithoutbem"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.pug_ecsstractor_run",
+          "title": "Run",
+          "group": "eCSStractor@1"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.pug_ecsstractor_run",
+        "title": "eCSStractor Run"
+      },
+      {
+        "command": "extension.pug_ecsstractor_runwithbem",
+        "title": "eCSStractor Run (With BEM Nesting)"
+      },
+      {
+        "command": "extension.pug_ecsstractor_runwithbemandcomments",
+        "title": "eCSStractor Run (With BEM Nesting and comments)"
+      },
+      {
+        "command": "extension.pug_ecsstractor_runwithoutbem",
+        "title": "eCSStractor Run (Without BEM Nesting)"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "eCSSTractor for VSCode configuration",
+      "properties": {
+        "pug_ecsstractor.brackets": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add brackets. Useful for Sass syntax and Stylus"
+        },
+        "pug_ecsstractor.brackets_newline_after": {
+          "type": "boolean",
+          "default": true,
+          "description": "Add new line"
+        },
+        "pug_ecsstractor.destination": {
+          "type": "string",
+          "enum": [
+            "tab",
+            "clipboard"
+          ],
+          "default": "clipboard",
+          "description": "Where to put result"
+        },
+        "pug_ecsstractor.attributes": {
+          "type": "string",
+          "enum": [
+            "class",
+            "className"
+          ],
+          "default": "class",
+          "description": "Attribute name \"class\" or \"className\" for jsx"
+        },
+        "pug_ecsstractor.bem_nesting": {
+          "type": "boolean",
+          "default": false,
+          "description": "BEM Nesting. Generate nested stylesheet for preprocessors"
+        },
+        "pug_ecsstractor.indentation": {
+          "type": "string",
+          "default": "\t",
+          "description": "Indent symbol"
+        },
+        "pug_ecsstractor.element_separator": {
+          "type": "string",
+          "default": "__",
+          "description": "Separator between block and element names"
+        },
+        "pug_ecsstractor.modifier_separator": {
+          "type": "string",
+          "default": "_",
+          "description": "Separator between block or element and they modifier"
+        },
+        "pug_ecsstractor.parent_symbol": {
+          "type": "string",
+          "default": "&",
+          "description": "Parent symbol. Ex.: &__element {}"
+        },
+        "pug_ecsstractor.empty_line_before_nested_selector": {
+          "type": "boolean",
+          "default": true,
+          "description": "Empty line before nested element/modifier"
+        },
+        "pug_ecsstractor.add_comment": {
+          "title": "sd2",
+          "type": "boolean",
+          "default": true,
+          "description": "Add comments to nested stylesheets for preprocessors"
+        },
+        "pug_ecsstractor.comment_style": {
+          "type": "string",
+          "enum": [
+            "css",
+            "scss"
+          ],
+          "default": "scss",
+          "description": "Comment style. Either CSS (/* */) or SCSS (//)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@types/vscode": "^1.104.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.34.0"
+  },
+  "dependencies": {
+    "copy-paste": "^2.2.0",
+    "pug-lexer": "^5.0.1",
+    "pug-parser": "^6.0.0"
+  }
+}
