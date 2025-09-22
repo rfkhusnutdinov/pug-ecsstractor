@@ -1,6 +1,6 @@
 {
   "name": "pug-ecsstractor",
-  "displayName": "PUG eCSStractor for VSCode",
+  "displayName": "PUG eCSStractor",
   "description": "VSCode plugin for extracting class names from PUG and generate CSS stylesheet for following work.",
   "version": "0.0.1",
   "icon": "images/icon.png",
